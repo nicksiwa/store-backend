@@ -41,3 +41,33 @@ export const deleteTag = async (req, res) => {
     });
   }
 }
+
+export const editTag = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+    const tag = await model.Tag.findOne({ where: { id }});
+    if (tag) {
+      await tag.update({ name });
+    }
+    return res.status(200).json({ tag });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: '',
+    });
+  }
+}
+
+export const getTagById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const tag = await model.Tag.findOne({ where: { id }});
+    return res.status(200).json({ tag });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      message: '',
+    });
+  }
+}
