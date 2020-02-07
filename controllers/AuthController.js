@@ -5,9 +5,7 @@ import { auth } from '../helpers';
 export const signIn = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await model.User.findOne({
-      where: { username }
-    });
+    const user = await model.User.findOne({ where: { username }});
     if (user) {
       const isValid = await user.isValidPassword(password);
       if (isValid) {
@@ -48,9 +46,7 @@ export const signUp = async (req, res) => {
       firstName,
       lastName,
     } = req.body;
-    const oldUser = await model.User.findOne({
-      where: { username }
-    });
+    const oldUser = await model.User.findOne({ where: { username }});
     if (!oldUser) {
       const user = await model.User.create({
         username,

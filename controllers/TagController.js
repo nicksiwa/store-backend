@@ -3,14 +3,10 @@ import model from '../models';
 export const getAllTags = async (req, res) => {
   try {
     const tags = await model.Tag.findAll();
-    return res.status(200).json({
-      tags,
-    });
+    return res.status(200).json({ tags });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({
-      message: '',
-    });
+    return res.status(500).json({ message: '' });
   }
 }
 
@@ -21,24 +17,18 @@ export const createTag = async (req, res) => {
     return res.status(200).json({ tag });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({
-      message: '',
-    });
+    return res.status(500).json({ message: '' });
   }
 }
 
 export const deleteTag = async (req, res) => {
   try {
     const { id } = req.params;
-    await model.Tag.destroy({
-      where: { id },
-    });
+    await model.Tag.destroy({ where: { id }});
     return res.status(200).json({ id });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({
-      message: '',
-    });
+    return res.status(500).json({ message: '' });
   }
 }
 
@@ -53,9 +43,7 @@ export const editTag = async (req, res) => {
     return res.status(200).json({ tag });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({
-      message: '',
-    });
+    return res.status(500).json({ message: '' });
   }
 }
 
@@ -66,8 +54,6 @@ export const getTagById = async (req, res) => {
     return res.status(200).json({ tag });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({
-      message: '',
-    });
+    return res.status(500).json({ message: '' });
   }
 }

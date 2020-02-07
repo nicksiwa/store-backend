@@ -24,3 +24,7 @@ export const ORDER = {
 export const TAG = {
   INDEX: '/tag',
 };
+
+export const CATEGOTY = {
+  INDEX: '/category',
+};

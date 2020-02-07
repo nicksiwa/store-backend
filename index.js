@@ -6,6 +6,7 @@ import {
   authRouter,
   userRouter,
   tagRouter,
+  categoryRouter,
 } from './routers';
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({
 app.use(ROUTE.AUTH.INDEX, authRouter);
 app.use(ROUTE.USER.INDEX, userRouter);
 app.use(ROUTE.TAG.INDEX, tagRouter);
+app.use(ROUTE.CATEGOTY.INDEX, categoryRouter);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
